@@ -1,0 +1,59 @@
+html, body {
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  overflow: hidden;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Game */
+.game {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  background: radial-gradient(circle, #333, #000);
+  position: relative;
+}
+
+/* Numbers */
+.game .numbers {
+  position: absolute;
+  color: #fff;
+  font-size: 4rem;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.7);
+  font-weight: bold;
+  text-align: center;
+  z-index: 2; /* Ensure text is above the ball */
+}
+
+.game .numbers.score {
+  top: 10px;
+}
+
+.game .numbers.timer {
+  bottom: 10px;
+}
+
+/* Ball */
+.game .ball {
+  position: absolute;
+  width: 12vw;
+  height: 12vw;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff6f61, #de4c6b);
+  border: 3px solid #fff;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s ease, width 0.2s ease, height 0.2s ease;
+  z-index: 1; /* Ensure ball is below the text */
+}
+
+.game .ball.start {
+  animation: bounce 1s infinite;
+}
+
+.game .ball.end {
+  pointer-events: none;
+  transform: scale(1.2);
+}
